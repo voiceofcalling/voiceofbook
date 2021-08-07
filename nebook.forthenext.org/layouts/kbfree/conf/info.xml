@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">Kenta 비지니스 레이아웃</title>
+    <description xml:lang="ko">상품 홍보, 회사 홈페이지등에 맞는 스타일의 레이아웃입니다.</description>
+    <version>1.2</version>
+    <date>2014-06-24</date>
+    <author email_address="lansys05@migix.jp" link="http://kenta.migix.jp">
+        <name xml:lang="ko">Kenta</name>
+    </author>
+    <menus>
+        <menu name="main_menu" maxdepth="2" default="true">
+            <title xml:lang="ko">메인 메뉴</title>
+        </menu>
+    </menus>
+	<extra_vars>
+		<var name="page_type" type="select">
+			<title xml:lang="ko">페이지 타입</title>
+			<title xml:lang="en">Page Type</title>
+			<options value="main">
+				<title xml:lang="ko">메인 페이지</title>
+			</options>
+			<options value="sub">
+				<title xml:lang="ko">서브 페이지</title>
+			</options>
+		</var>
+		<var name="header_menu" type="select">
+			<title xml:lang="ko">상단메뉴 표시</title>
+			<title xml:lang="en">Show Header Menu</title>
+			<options value="yes">
+				<title xml:lang="ko">표시</title>
+				<title xml:lang="en">Show</title>
+			</options>
+			<options value="no">
+				<title xml:lang="ko">표시 안함</title>
+				<title xml:lang="en">Don't Show</title>
+			</options>
+		</var>
+		<var name="url_logo" type="text">
+			<title xml:lang="ko">로고 URL</title>
+		</var>
+		<var name="img_logo" type="image">
+			<title xml:lang="ko">로고 이미지 (250x60)</title>
+		</var>
+		<var name="text_logo" type="text">
+			<title xml:lang="ko">로고 텍스트</title>
+		</var>
+		<var name="copyright" type="textarea">
+			<title xml:lang="ko">카피라이트</title>
+		</var>
+		<var name="slider" type="select">
+			<title xml:lang="ko">메인 메뉴 슬라이더 사용</title>
+			<title xml:lang="en">Enable Main Slider</title>
+			<options value="yes">
+				<title xml:lang="ko">사용</title>
+				<title xml:lang="en">Enable</title>
+			</options>
+			<options value="no">
+				<title xml:lang="ko">사용안함</title>
+				<title xml:lang="en">Disable</title>
+			</options>
+		</var>
+		<var name="slider_title" type="text">
+			<title xml:lang="ko">슬라이더 제목</title>
+		</var>
+		<var name="slider_image" type="image">
+			<title xml:lang="ko">슬라이더 이미지</title>
+		</var>
+		<var name="slider_content" type="textarea">
+			<title xml:lang="ko">슬라이더 콘텐츠</title>
+		</var>
+	</extra_vars>
+</layout>

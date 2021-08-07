@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+	<title xml:lang="ko">XE freelancer Template</title>
+	<description xml:lang="ko">XE freelancer Template v1.00</description>
+	<version>1.00</version>
+	<date>2015-11-06</date>
+	<author email_address="pcwpower@gmail.com">
+		<name xml:lang="ko">pcwpower</name>
+	</author>
+	<extra_vars>
+		<group>
+			<title xml:lang="ko">HEADER 프로필 영역</title>
+			<var name="profile" type="image">
+				<title xml:lang="ko">▶ 프로필 이미지</title>
+				<description xml:lang="ko">프로필 이미지를 등록합니다. 이미지의 기본 크기는 256x256입니다. 투명 png 타입의 이미지를 사용하시길 바랍니다.</description>	
+			</var>
+			<var name="profile_title" type="text">
+				<title xml:lang="ko">▶ 프로필 대체문자</title>
+				<description xml:lang="ko">프로필 이미지 대체문자(alt)를 입력하세요</description>	
+			</var>
+			<var name="profile_url" type="text">
+				<title xml:lang="ko">▶ 프로필 링크</title>
+				<description xml:lang="ko">프로필 클릭시 이동할 링크주소를 입력합니다. (비워두시면 기본 도메인으로 자동설정됩니다.)</description>	
+			</var>
+			<var name="profile_oneline" type="text">
+				<title xml:lang="ko">▶ 프로필 한줄 설명</title>
+				<description xml:lang="ko">프로필 한줄 설명을 입력합니다.</description>	
+			</var>
+		</group>
+		
+		<group>
+			<title xml:lang="ko">포트폴리오 영역</title>
+			<var name="portfolio_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 타이틀</title>
+				<description xml:lang="ko">포트폴리오 타이틀(현재 기본:Portfolio)</description>	
+			</var>
+			<var name="portfolio_img1_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 1 타이틀</title>
+			</var>
+			<var name="portfolio_simg1_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 1</title>
+				<description xml:lang="ko">포트폴리오 리스트 첫번째 이미지</description>	
+			</var>
+			<var name="portfolio_img1_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 1</title>
+				<description xml:lang="ko">포트폴리오 리스트 첫번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img1_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 1 설명</title>
+			</var>
+			
+			<var name="portfolio_img2_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 2 타이틀</title>
+			</var>
+			<var name="portfolio_simg2_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 2</title>
+				<description xml:lang="ko">포트폴리오 리스트 두번째 이미지</description>	
+			</var>
+			<var name="portfolio_img2_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 2</title>
+				<description xml:lang="ko">포트폴리오 리스트 두번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img2_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 2 설명</title>
+			</var>
+			
+			<var name="portfolio_img3_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 3 타이틀</title>
+			</var>
+			<var name="portfolio_simg3_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 3</title>
+				<description xml:lang="ko">포트폴리오 리스트 세번째 이미지</description>	
+			</var>
+			<var name="portfolio_img3_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 3</title>
+				<description xml:lang="ko">포트폴리오 리스트 세번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img3_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 3 설명</title>
+			</var>
+			
+			<var name="portfolio_img4_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 4 타이틀</title>
+			</var>
+			<var name="portfolio_simg4_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 4</title>
+				<description xml:lang="ko">포트폴리오 리스트 네번째 이미지</description>	
+			</var>
+			<var name="portfolio_img4_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 4</title>
+				<description xml:lang="ko">포트폴리오 리스트 네번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img4_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 4 설명</title>
+			</var>
+			
+			<var name="portfolio_img5_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 5 타이틀</title>
+			</var>
+			<var name="portfolio_simg5_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 5</title>
+				<description xml:lang="ko">포트폴리오 리스트 다섯번째 이미지</description>	
+			</var>
+			<var name="portfolio_img5_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 5</title>
+				<description xml:lang="ko">포트폴리오 리스트 다섯번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img5_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 5 설명</title>
+			</var>
+			
+			<var name="portfolio_img6_title" type="text">
+				<title xml:lang="ko">▶ 포트폴리오 이미지 6 타이틀</title>
+			</var>
+			<var name="portfolio_simg5_small" type="image">
+				<title xml:lang="ko">포트폴리오 미리보기 이미지 6</title>
+				<description xml:lang="ko">포트폴리오 리스트 여섯번째 이미지</description>	
+			</var>
+			<var name="portfolio_img6_big" type="image">
+				<title xml:lang="ko">포트폴리오 메인 이미지 6</title>
+				<description xml:lang="ko">포트폴리오 리스트 여섯번째 팝업의 메인 이미지</description>	
+			</var>
+			<var name="portfolio_img6_text" type="textarea">
+				<title xml:lang="ko">포트폴리오 이미지 6 설명</title>
+			</var>
+			
+		</group>
+		
+		<group>
+			<title xml:lang="ko">ABOUT 영역</title>
+			<var name="about_title" type="text">
+				<title xml:lang="ko">▶ ABOUT 타이틀</title>
+				<description xml:lang="ko">ABOUT 타이틀(현재 기본:ABOUT)</description>	
+			</var>
+			<var name="portfolio_about_left_text" type="textarea">
+				<title xml:lang="ko">ABOUT 왼쪽 영역 설명</title>
+			</var>
+			<var name="portfolio_about_right_text" type="textarea">
+				<title xml:lang="ko">ABOUT 오른쪽 영역 설명</title>
+			</var>
+			<var name="portfolio_download_theme" type="text">
+				<title xml:lang="ko">ABOUT 버튼 추가</title>
+				<description xml:lang="ko">ABOUT 버튼에 적용될 텍스트 기입</description>	
+			</var>
+		</group>
+		
+		<group>
+			<title xml:lang="ko">FOOTER 영역</title>
+			<var name="sns_link1" type="text">
+				<title xml:lang="ko">▶ SNS1 링크 주소</title>
+				<description xml:lang="ko">링크 주소를 입력합니다.</description>	
+			</var>
+			<var name="sns_link_i1" type="text">
+				<title xml:lang="ko">- SNS1 아이콘</title>
+				<description xml:lang="ko">아이콘 코드를 입력합니다.(http://fortawesome.github.io/Font-Awesome/icons/ 코드표 참고)</description>	
+			</var>
+			<var name="sns_link2" type="text">
+				<title xml:lang="ko">▶ SNS2 링크 주소</title>
+				<description xml:lang="ko">링크 주소를 입력합니다.</description>	
+			</var>
+			<var name="sns_link_i2" type="text">
+				<title xml:lang="ko">- SNS2 아이콘</title>
+				<description xml:lang="ko">아이콘 코드를 입력합니다.(http://fortawesome.github.io/Font-Awesome/icons/ 코드표 참고)</description>	
+			</var>
+			<var name="sns_link3" type="text">
+				<title xml:lang="ko">▶ SNS3 링크 주소</title>
+				<description xml:lang="ko">링크 주소를 입력합니다.</description>	
+			</var>
+			<var name="sns_link_i3" type="text">
+				<title xml:lang="ko">- SNS3 아이콘</title>
+				<description xml:lang="ko">아이콘 코드를 입력합니다.(http://contest.xpressengine.com/templates/xe_icon/index.html 코드표 참고)</description>	
+			</var>
+			<var name="sns_link4" type="text">
+				<title xml:lang="ko">▶ SNS4 링크 주소</title>
+				<description xml:lang="ko">링크 주소를 입력합니다.</description>	
+			</var>
+			<var name="sns_link_i4" type="text">
+				<title xml:lang="ko">- SNS4 아이콘</title>
+				<description xml:lang="ko">아이콘 코드를 입력합니다.(http://fortawesome.github.io/Font-Awesome/icons/ 코드표 참고)</description>	
+			</var>
+			<var name="sns_link5" type="text">
+				<title xml:lang="ko">▶ SNS5 링크 주소</title>
+				<description xml:lang="ko">링크 주소를 입력합니다.</description>	
+			</var>
+			<var name="sns_link_i5" type="text">
+				<title xml:lang="ko">- SNS5 아이콘</title>
+				<description xml:lang="ko">아이콘 코드를 입력합니다.(http://fortawesome.github.io/Font-Awesome/icons/ 코드표 참고)</description>	
+			</var>
+			<var name="company_address" type="textarea">
+				<title xml:lang="ko">▶ 주소</title>
+				<description xml:lang="ko">주소를 입력합니다.</description>	
+			</var>
+			<var name="about_me_tit" type="textarea">
+				<title xml:lang="ko">▶ 소개 제목</title>
+				<description xml:lang="ko">소개제목을 입력합니다.</description>	
+			</var>
+			<var name="about_me" type="textarea">
+				<title xml:lang="ko">▶ 소개 내용</title>
+				<description xml:lang="ko">소개 내용을 입력합니다.</description>	
+			</var>
+			<var name="copyright" type="text">
+				<title xml:lang="ko">▶ 카피라이트</title>
+				<description xml:lang="ko">카피라이트 정보를 입력합니다.</description>	
+			</var>			
+		</group>
+		
+    </extra_vars>
+ 
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+			<title xml:lang="ko">메인 메뉴</title>
+        </menu>
+    </menus>
+</layout>
+ 

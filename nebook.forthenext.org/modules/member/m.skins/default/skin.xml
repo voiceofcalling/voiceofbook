@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+	<title xml:lang="ko">회원 기본 모바일 스킨</title>
+	<title xml:lang="en">XE Basic Member Mobile Skin</title>
+	<title xml:lang="jp">会員でフォルトモバイルスキン</title>
+	<description xml:lang="ko">
+		XE 기본 모바일 스킨 입니다.
+		XEHub (developers@xpressengine.com) 
+	</description>
+	<description xml:lang="jp">
+		XEでフォルトモバイルスキンです。
+		XEHub (developers@xpressengine.com) 
+	</description>
+	<version>1.7</version>
+	<date>2013-11-27</date>
+	<author email_address="developers@xpressengine.com" link="https://www.xehub.io">
+		<name xml:lang="ko">XEHub</name>
+		<name xml:lang="en">XEHub</name>
+		<name xml:lang="jp">XEHub</name>
+		<name xml:lang="zh-TW">XEHub</name>
+		<name xml:lang="tr">XEHub</name>
+	</author>
+</skin>

@@ -1,0 +1,1 @@
+<?php if(!defined("__XE__"))exit;?>We are nebook!

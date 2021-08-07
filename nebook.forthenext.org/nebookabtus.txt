@@ -1,0 +1,10 @@
+﻿What IS neBook?
+Our goal with neBook isn’t to just create an ebook app. To describe our real goal, it’s important to give some context. 
+
+
+History of neBook
+At the Voice of Calling NPO, the base of operations for the neBook project, we were reached out by E3Empower in Tanzania, IT Center in Egypt, and the Lokori School in Kenya. All of these institutions had one thing in common: they were looking for a way to connect their students with books. Because of the lack of books in these educational institutions, the students were not very interested in reading. Even when books were present, the lack of basic human resources made it difficult to devote energy to reading.
+
+
+Our Initiative
+After seeing this, we could not stand by without doing anything. We had heard stories of children not even being able to go to school because of the lack of resources, so we wanted to help in any way that we could. We had heard that Kenya started to focus on digital literacy education in 2013, and because of this many schools have been equipped with computers and electricity. To work with Kenya’s efforts, we at neBook have decided to make an application that is free-of-charge, and give the children the opportunity to read any book that they wish to read. With resources such as Project Gutenberg and Manybooks, which allow free use by their copyright laws, we have collected books and are providing them through the neBook website. To target the illiteracy rates in Kenya, we specifically wanted to design a book that could do highlighted text-to-speech, through the voices of the community. The abundant resources are all in the computer, but the only problem is the lack of teachers. However, we are hoping that through the spreading of self-education through these ebooks, they will be able to take a step forward. That is why we started neBook.

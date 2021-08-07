@@ -1,0 +1,50 @@
+
+<!--@if(!$layout_info->slide_speed)-->{@$layout_info->slide_speed = "7000"}<!--@end-->
+<load target="../css/owl.carousel.css" />
+<load target="../css/da-owl.css" />
+<load target="../js/owl.carousel.min.js" type="body" />
+
+<div class="wrap-mobile-owl">
+	<div class="da-owl mobile-owl owl-carousel">
+		<div class="item" cond="$layout_info->Mslide_img1">
+		  <img class="main_slide_img" src="{$layout_info->Mslide_img1}" alt="{$layout_info->Mslide_title1}" />
+		</div>
+
+		<div class="item" cond="$layout_info->Mslide_img2">
+		  <img class="main_slide_img" src="{$layout_info->Mslide_img2}" alt="{$layout_info->Mslide_title2}" />
+		</div>
+
+		<div class="item" cond="$layout_info->Mslide_img3">
+		  <img class="main_slide_img" src="{$layout_info->Mslide_img3}" alt="{$layout_info->Mslide_title3}" />
+		</div>
+
+		<div class="item" cond="$layout_info->Mslide_img4">
+		  <img class="main_slide_img" src="{$layout_info->Mslide_img4}" alt="{$layout_info->Mslide_title4}" />
+		</div>
+
+		<div class="item" cond="$layout_info->Mslide_img5">
+		  <img class="main_slide_img" src="{$layout_info->Mslide_img5}" alt="{$layout_info->Mslide_title5}" />
+		</div>
+	</div>
+</div>
+
+		<script type="text/javascript">
+			jQuery(function($){
+			
+			  $('.mobile-owl').owlCarousel({
+				nav:true,
+                items: 1,
+                loop: true,
+				autoplay:false,
+				
+				autoplayTimeout:7000,
+				autoplayHoverPause:true,
+                margin:0
+               
+              });
+
+			 
+
+			
+		});
+		</script>	

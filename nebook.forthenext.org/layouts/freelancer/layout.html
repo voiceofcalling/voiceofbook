@@ -1,0 +1,659 @@
+{@ $oldIE = 0}
+{@ $browser_type = getenv("HTTP_USER_AGENT")}
+<!--@if(preg_match("/MSIE 8.0/",$browser_type))-->
+{@ $IE='8'; $oldIE=1}
+<!--@else if(preg_match("/MSIE 7.0/",$browser_type))-->
+{@ $IE='7'; $oldIE=1}
+<!--@else if(preg_match("/MSIE 6.0/",$browser_type))-->
+{@ $IE='6'; $oldIE=1}
+<!--@endif-->
+
+{@ $hide_visual_actions = false}
+<block cond="$act == 'IS'">{@ $hide_visual_actions = true}</block>
+<block cond="strpos($act, 'Member') !== false ">{@ $hide_visual_actions = true}</block>
+<block cond="strpos($act, 'Communication') !== false">{@ $hide_visual_actions = true}</block>
+
+{@ $layout_type = 'sub'}
+<block cond="!$hide_visual_actions && $site_module_info->module_srl === $current_module_info->module_srl">
+{@ $layout_type = 'main'}
+</block>
+<block cond="Context::get('act') == 'dispMemberSignUpForm' || Context::get('act') == 'dispMemberInfo'">
+{@ $layout_type = 'sub'}
+</block>
+
+  
+<!-- CSS -->
+<load target="css/bootstrap.css" />
+<load target="css/bootstrap.min.css" />
+<load target="../../common/xeicon/xeicon.min.css" />
+<load target="css/freelancer.css" />
+ 
+<!-- JS -->
+<load target="js/jquery.js" />
+<load target="js/bootstrap.min.js" />
+<load target="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" />
+<load target="https://cdn.jsdelivr.net/classlist/2014.01.31/classList.min.js" />
+
+<load target="js/freelancer.js" />
+<load target="js/jqBootstrapValidation.js" />
+
+
+ 
+<!-- FONT -->
+<load target="font-awesome/css/font-awesome.min.css" />
+<load target="http://fonts.googleapis.com/css?family=Montserrat:400,700" />
+<load target="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" />
+
+
+<!-- container -->
+ 
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-shrink">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header page-scroll">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#page-top">{$module_info->browser_title}</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="hidden">
+					<a href="#page-top"></a>
+				</li>
+				<li class="page-scroll">
+					<!--@if($layout_info->portfolio_title)-->
+					<a href="#portfolio">{$layout_info->portfolio_title}</a>
+					<!--@else-->
+					<a href="#portfolio">Portfolio</a>
+					<!--@end-->
+				</li>
+				<li class="page-scroll">
+					<!--@if($layout_info->about_title)-->
+					<a href="#about">{$layout_info->about_title}</a>
+					<!--@else-->
+					<a href="#about">About</a>
+					<!--@end-->
+				</li>
+				<li class="page-scroll">
+					<a href="#contact">Contact</a>
+				</li>
+				<li class="page-scroll"><!-- login -->
+					<!-- [D] 로그인 in, 로그아웃 out 클래스 추가 -->
+					<!--@if(!$is_logged)-->
+					<!-- begin_login -->
+					<div class="log_area out" style="padding:19.5px 0 19.5px 15px">
+
+							<span class="log_lst1"><a href="{getUrl('act','dispMemberLoginForm')}" id="ly_login_btn"class="log_btn"><i class="xi-user"></i><span class="bg_ft_bubble">login</span></a></span>
+
+					</div>
+					<!--@else-->
+					<!-- after_login -->
+					<div class="log_area in" style="padding-top:19.5px;padding-bottom:19.5px;">
+						<ul style="padding-left:15px">
+							<li class="log_lst1"><a href="{getUrl('act','dispMemberLogout')}" class="log_btn ex_log"><i class="xi-user-add"></i><span class="bg_ft_bubble">logout</span></a></li>
+							<li cond="$logged_info->is_admin == 'Y'" class="log_lst4"><a href="{getUrl('', 'module','admin')}" class="log_btn"><i class="xi-command"></i><span class="bg_ft_bubble">setting</span></a></li>
+						</ul>
+					</div>
+					<!--@end-->
+					<!-- //login -->
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+<!--@if($layout_type == 'main')-->
+
+<!-- Header -->
+<header id="page-top">
+	<div class="container">
+		<!-- //gnb -->
+		
+		<div class="row">
+			<div class="col-lg-12">
+				<a href="{$layout_info->profile_url}">
+					<!--@if($layout_info->profile)-->
+					<img src="{$layout_info->profile}" alt="{$layout_info->profile_title}" class="img-responsive"/>
+					<!--@else-->
+					<img src="img/profile.png" width="256" height="256" alt="{$layout_info->profile_title}" class="img-responsive">
+					<!--@end-->
+				</a>
+			
+				<div class="intro-text">
+					<span class="name">{$module_info->browser_title}</span>
+					<hr class="star-light">
+					<span class="skills">{$layout_info->profile_oneline}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<!--@if($layout_info->portfolio_title)-->
+				<h2>{$layout_info->portfolio_title}</h2>
+				<!--@else-->
+				<h2>Portfolio</h2>
+				<!--@end-->
+				<hr class="star-primary">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 portfolio-item">
+				<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg1_small)-->
+					<img src="$layout_info->portfolio_simg1_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/cabin.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item" cond="$layout_info->portfolio_img2_title">
+				<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg2_small)-->
+					<img src="$layout_info->portfolio_simg2_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/cake.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item" cond="$layout_info->portfolio_img3_title">
+				<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg3_small)-->
+					<img src="$layout_info->portfolio_simg3_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/circus.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item" cond="$layout_info->portfolio_img4_title">
+				<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg4_small)-->
+					<img src="$layout_info->portfolio_simg4_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/game.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item" cond="$layout_info->portfolio_img5_title">
+				<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg5_small)-->
+					<img src="$layout_info->portfolio_simg5_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/safe.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item" cond="$layout_info->portfolio_img6_title">
+				<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<!--@if($layout_info->portfolio_simg6_small)-->
+					<img src="$layout_info->portfolio_simg6_small" class="img-responsive" alt="">
+					<!--@else-->
+					<img src="img/portfolio/submarine.png" class="img-responsive" alt="">
+					<!--@end-->
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- About Section -->
+<section class="success" id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<!--@if($layout_info->about_title)-->
+				<h2>{$layout_info->about_title}</h2>
+				<!--@else-->
+				<h2>About</h2>
+				<!--@end-->
+				<hr class="star-light">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-lg-offset-2">
+				<!--@if($layout_info->portfolio_about_left_text)-->
+				<p>{$layout_info->portfolio_about_left_text}</p>
+				<!--@else-->
+				<p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+				<!--@end-->
+				
+			</div>
+			<div class="col-lg-4">
+				<!--@if($layout_info->portfolio_about_right_text)-->
+				<p>{$layout_info->portfolio_about_right_text}</p>
+				<!--@else-->
+				<p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+				<!--@end-->
+				
+			</div>
+			<div class="col-lg-8 col-lg-offset-2 text-center" cond="$layout_info->portfolio_download_theme">
+				<a href="#" class="btn btn-lg btn-outline">
+					<i class="fa fa-download"></i> 
+					<!--@if($layout_info->portfolio_download_theme)-->
+					{$layout_info->portfolio_download_theme}
+					<!--@else-->
+					Download Theme
+					<!--@end-->
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+{$content}
+<!--@else-->
+<div class="sub_page">
+{$content}
+</div>
+<!--@end-->
+
+<!-- Footer -->
+<footer class="text-center">
+	<div class="footer-above">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col col-md-4">
+					<h3>Location</h3>
+					<p>{$layout_info->company_address}</p>
+				</div>
+				<div class="footer-col col-md-4">
+					<h3>Around the Web</h3>
+					<ul class="list-inline">
+						<li>
+							<a href="{$layout_info->sns_link1}" class="btn-social btn-outline" cond="$layout_info->sns_link1"><i class="fa fa-fw {$layout_info->sns_link_i1}"></i></a>
+						</li>
+						<li>
+							<a href="{$layout_info->sns_link2}" class="btn-social btn-outline" cond="$layout_info->sns_link2"><i class="fa fa-fw {$layout_info->sns_link_i2}"></i></a>
+						</li>
+						<li>
+							<a href="{$layout_info->sns_link3}" class="btn-social btn-outline" cond="$layout_info->sns_link3"><i class="fa fa-fw {$layout_info->sns_link_i3}"></i></a>
+						</li>
+						<li>
+							<a href="{$layout_info->sns_link4}" class="btn-social btn-outline" cond="$layout_info->sns_link4"><i class="fa fa-fw {$layout_info->sns_link_i4}"></i></a>
+						</li>
+						<li>
+							<a href="{$layout_info->sns_link5}" class="btn-social btn-outline" cond="$layout_info->sns_link5"><i class="fa fa-fw {$layout_info->sns_link_i5}"></i></a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-col col-md-4">
+					<h3>{$layout_info->about_me_tit}</h3>
+					<p>{$layout_info->about_me}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer-below" cond="$layout_info->copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					{$layout_info->copyright}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+<div class="scroll-top page-scroll visible-xs visible-sm">
+	<a class="btn btn-primary" href="#page-top">
+		<i class="fa fa-chevron-up"></i>
+	</a>
+</div>
+
+<!-- Portfolio Modals -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img1_title)-->
+						<h2>{$layout_info->portfolio_img1_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+						
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img1_big)-->
+						<img src="$layout_info->portfolio_img1_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+						
+						<!--@if($layout_info->portfolio_img1_text)-->
+						<p>{$layout_info->portfolio_img1_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+						
+						<button type="button" class="btn btn-default item-details" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img2_title)-->
+						<h2>{$layout_info->portfolio_img2_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img2_big)-->
+						<img src="$layout_info->portfolio_img2_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+
+						<!--@if($layout_info->portfolio_img2_text)-->
+						<p>{$layout_info->portfolio_img2_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img3_title)-->
+						<h2>{$layout_info->portfolio_img3_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img3_big)-->
+						<img src="$layout_info->portfolio_img3_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+
+						<!--@if($layout_info->portfolio_img3_text)-->
+						<p>{$layout_info->portfolio_img3_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img4_title)-->
+						<h2>{$layout_info->portfolio_img4_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img4_big)-->
+						<img src="$layout_info->portfolio_img4_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+
+						<!--@if($layout_info->portfolio_img4_text)-->
+						<p>{$layout_info->portfolio_img4_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img5_title)-->
+						<h2>{$layout_info->portfolio_img5_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img5_big)-->
+						<img src="$layout_info->portfolio_img5_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+
+						<!--@if($layout_info->portfolio_img5_text)-->
+						<p>{$layout_info->portfolio_img5_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-content">
+		<div class="close-modal" data-dismiss="modal">
+			<div class="lr">
+				<div class="rl">
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="modal-body">
+						<!--@if($layout_info->portfolio_img6_title)-->
+						<h2>{$layout_info->portfolio_img6_title}</h2>
+						<!--@else-->
+						<h2>Project Title</h2>
+						<!--@end-->
+
+						<hr class="star-primary">
+						<!--@if($layout_info->portfolio_img6_big)-->
+						<img src="$layout_info->portfolio_img6_big" class="img-responsive img-centered" alt="">
+						<!--@else-->
+						<img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+						<!--@end-->
+
+						<!--@if($layout_info->portfolio_img6_text)-->
+						<p>{$layout_info->portfolio_img6_text}</p>
+						<!--@else-->
+						<p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+						<!--@end-->
+
+						<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Login widget -->
+<section class="login_widget" style="display:none"|cond="$XE_VALIDATOR_ID != 'layouts/xedition/layout/1' || !$XE_VALIDATOR_MESSAGE">
+	<load target="./css/widget.login.css" />
+	<div class="ly_dimmed"></div>
+	<div class="signin">
+		<div class="login-header">
+			<h1>LOGIN</h1>
+		</div>
+		<div class="login-body">
+			<form action="{getUrl()}" method="post" autocomplete="off">
+				<input type="hidden" name="act" value="procMemberLogin" />
+				<input type="hidden" name="success_return_url" value="{htmlspecialchars(getRequestUriByServerEnviroment(), ENT_COMPAT | ENT_HTML401, 'UTF-8', FALSE)}" />
+				<input type="hidden" name="xe_validator_id" value="layouts/xedition/layout/1" />
+				<fieldset>
+					<legend class="blind">{$lang->cmd_login}</legend>
+					<div class="control-group">
+						<div class="group">
+							<input type="text" name="user_id" id="uemail" required="true" />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="info_label" for="uemail">{$lang->user_id}</label>
+						</div>
+						<div class="group">
+							<input type="password" name="password" id="upw" required="true" />
+							<span class="highlight"></span>
+							<span class="bar"></span>
+							<label class="info_label" for="upw">{$lang->password}</label>
+						</div>
+					</div>
+					<div cond="$XE_VALIDATOR_ID == 'layouts/xedition/layout/1' && $XE_VALIDATOR_MESSAGE" class="control-group">
+						<p class="error">{$XE_VALIDATOR_MESSAGE}</p>
+					</div>
+					<div class="control-group">
+						<label class="chk_label" for="keepid_opt">
+							<input type="checkbox" name="keep_signed" id="keepid_opt" value="Y" />
+							<span class="checkbox"></span> {$lang->keep_signed}
+						</label>
+						<div id="warning">
+							<p>{str_replace('\n\n', '<br />', $lang->about_keep_signed)}</p>
+							<div class="edge"></div>
+						</div>
+						<button type="submit" class="btn_submit">{$lang->cmd_login}</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+		<div class="login-footer">
+		</div>
+		<a href="#" class="btn_ly_popup"><span class="blind">닫기</span></a>
+	</div>
+	<script>
+		jQuery(function ($) {
+			var keep_msg = $("#warning");
+			$(".chk_label").on("mouseenter mouseleave focusin focusout", function (e) {
+				if(e.type == "mouseenter" || e.type == "focusin") {
+					keep_msg.show();
+				}
+				else {
+					keep_msg.hide();
+				}
+			});
+			$("#ly_login_btn, #ly_btn").click(function () {
+				$(".login_widget").show();
+				return false;
+			});
+			$(".btn_ly_popup").click(function () {
+				$(".login_widget").hide();
+				return false;
+			});
+			$("input").blur(function () {
+				var $this = $(this);
+				if ($this.val()) {
+					$this.addClass("used");
+				}
+				else {
+					$this.removeClass("used");
+				}
+			});
+		});
+	</script>
+</section>
+<!-- /Login widget -->

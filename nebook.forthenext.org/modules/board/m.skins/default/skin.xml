@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">XE 게시판 기본 스킨</title>
+    <title xml:lang="en">XE Basic Board Skin</title>
+    <title xml:lang="zh-TW">XE 基本面板</title>
+    <title xml:lang="tr">XE Temel Pano Dış Görünümü</title>
+    <description xml:lang="ko">
+        XE 게시판의 기본 스킨입니다.
+    </description>
+    <description xml:lang="en">
+        This is the basic board skin of XE.
+    </description>
+    <description xml:lang="tr">
+        XE'nin temel pano dış görünümüdür
+    </description>
+    <description xml:lang="zh-TW">
+        XE 基本討論板面板。
+    </description>
+    <version>0.1</version>
+    <date>2010-06-10</date>
+    <author email_address="developers@xpressengine.com" link="https://www.xehub.io">
+        <name xml:lang="ko">XEHub</name>
+        <name xml:lang="en">XEHub</name>
+        <name xml:lang="zh-TW">XEHub</name>
+        <name xml:lang="tr">XEHub</name>
+    </author>
+</skin>

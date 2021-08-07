@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko">Stellar</title>
+	<description xml:lang="ko">Designed by HTML5UP.net / Converted by Wincomi</description>
+	<version>1.0.2</version>
+	<date>2017-11-09</date>
+	<author email_address="admin@wincomi.com" link="https://www.wincomi.com/">
+		<name xml:lang="ko">윈컴이</name>
+		<name xml:lang="en">Wincomi</name>
+	</author>
+	<menus>
+		<menu name="global_menu" maxdepth="1" default="true">
+			<title xml:lang="ko">메인 메뉴</title>
+		</menu>
+	</menus>
+	<extra_vars>
+		<group>
+			<var name="header_logo" type="image">
+				<title xml:lang="ko">헤더 로고</title>
+				<description xml:lang="ko">(선택) 헤더에 표시될 로고를 업로드해주세요</description>
+			</var>
+			<var name="header_title" type="text">
+				<title xml:lang="ko">헤더 제목</title>
+				<description xml:lang="ko">헤더에 표시될 홈페이지 제목을 입력하세요.</description>
+			</var>
+			<var name="header_desc" type="textarea">
+				<title xml:lang="ko">헤더 설명</title>
+				<description xml:lang="ko">헤더에 표시될 설명을 입력하세요.</description>
+			</var>
+			<var name="copyright" type="textarea">
+				<title xml:lang="ko">저작권</title>
+				<description xml:lang="ko">하단에 표시될 저작권을 입력하세요.</description>
+			</var>
+			
+			<var name="nav_login" type="select">
+				<title xml:lang="ko">로그인 링크</title>
+				<description xml:lang="ko">로그인 링크를 표시합니다. 사용하지 않을 경우 메뉴가 중앙에 정렬됩니다.</description>
+				<options value="Y">
+					<title xml:lang="ko">네, 메뉴에 표시합니다.</title>
+				</options>
+				<options value="Y2">
+					<title xml:lang="ko">네, 푸터에 표시합니다.</title>
+				</options>
+				<options value="N">
+					<title xml:lang="ko">아니오</title>
+				</options>
+			</var>
+
+			<var name="background_color" type="select">
+				<title xml:lang="ko">배경색</title>
+				<options value="default">
+					<title xml:lang="ko">기본 (그라데이션)</title>
+				</options>
+				<options value="#333">
+					<title xml:lang="ko">검정</title>
+				</options>
+				<options value="#111">
+					<title xml:lang="ko">진한 검정</title>
+				</options>
+				<options value="#337ab7">
+					<title xml:lang="ko">파란색</title>
+				</options>
+				<options value="#269abc">
+					<title xml:lang="ko">하늘색</title>
+				</options>
+				<options value="#5cb85c">
+					<title xml:lang="ko">초록색</title>
+				</options>
+			</var>
+		</group>
+	</extra_vars>
+</layout>

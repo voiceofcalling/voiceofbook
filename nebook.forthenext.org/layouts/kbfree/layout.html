@@ -1,0 +1,75 @@
+<!--%import("./css/bootstrap.css")-->
+<!--%import("./css/style.css")-->
+<!--%import("./js/move-top.js")-->
+<!--%import("./js/easing.js")-->
+<!--%import("./js/bootstrap.min.js")-->
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<div class="header">
+		<div class="container">
+	<!--@if($layout_info->header_menu == "yes")-->
+	  	<div class="header_top">
+			<ul class="header_box">
+				<!--@if($is_logged)-->
+					<li><a href="{getUrl('act','dispMemberInfo')}">{$logged_info->nick_name}</a></li>
+					<li><a href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+				<!--@else-->
+					<li><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+					<li><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
+				<!--@end-->
+				<!--@if($logged_info->is_admin=="Y")-->
+					<li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;">{$lang->cmd_management}</a></li>
+				<!--@end-->
+			</ul>
+			<div class="clearfix"> </div>
+		</div>
+	<!--@else-->
+	<!--@end-->
+	<div class="header_bottom">
+	  <div class="container">
+	  	<div class="logo">
+	  	   <a href="{$layout_info->url_logo}"><img src="{$layout_info->img_logo}" alt="{$layout_info->text_logo}"/></a>
+	  	</div>
+	  	  <div class="menu">
+	  	    <div class="h_menu4"><!-- start h_menu4 -->
+				<a class="toggleMenu" href="#">Menu</a><div class="nav_icon"><img src="images/nav_icon.png" alt=""/></div>
+				<ul class="nav">
+					<li loop="$main_menu->list=>$key1,$val1" class="active"|cond="$val1['selected']">
+						<a href="{$val1['href']}" target="_blank"|cond="$val1['open_window']=='Y'">{$val1['link']}</a>
+						<ul cond="$val1['list']">
+							<li loop="$val1['list']=>$key2,$val2" class="active"|cond="$val2['selected']">
+								<a href="{$val2['href']}" target="_blank"|cond="$val2['open_window']=='Y'">{$val2['link']}</a>
+							</li>
+						</ul>
+					</li>
+					<script type="text/javascript" src="js/nav.js"></script>
+				</ul>
+			</div><!-- end h_menu4 -->
+            <div class="clearfix"> </div>
+	  </div>
+	  </div>
+	</div>
+	</div>
+	</div>
+	<!--@if($layout_info->slider == "yes")-->
+		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+			<div class="item active">
+				<img src="{$layout_info->slider_image}" alt="slider">
+				<div class="carousel-caption">
+					<h1>{$layout_info->slider_title}</h1>
+					{$layout_info->slider_content}
+				</div>
+			</div>
+		</div>
+	<!--@end-->
+	<div class="container" style="margin-top: 10px;margin-bottom: 10px;">
+	{$content}
+	</div>
+       <div class="footer-bottom">
+   	<div class="container">
+   		<div class="copy">
+		    <p>{$layout_info->copyright}</p>
+		</div>
+   	</div>
+</div>
